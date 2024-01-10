@@ -1,0 +1,29 @@
+<div class="volunteer-list" *ngIf="volunteers.length > 0; else noVolunteers">
+    <h2 class="text-center my-4">List of Volunteers</h2>
+    <div class="volunteer-container">
+      <div *ngFor="let volunteer of volunteers" class="volunteer-card">
+        <div class="volunteer-details">
+          <h3 class="text-center" style="color: #8bc34a;font-weight:bold;">{{ volunteer.firstname }} {{ volunteer.lastname }}</h3>
+          <div class="detail-row">
+            <p><strong>Status:</strong> {{ volunteer.status }}</p> 
+            <p><strong>Age:</strong> {{ volunteer.age }}</p>
+          </div>
+          <div class="detail-row">
+            <p><strong>Country:</strong> {{ volunteer.country }}</p>
+            <p><strong>Phone:</strong> <a href="tel:{{ volunteer.phone }}" style="color: #ff9800;font-weight:bold;text-decoration:none;">{{ volunteer.phone }}</a></p>
+        </div>
+            <p><strong>Skills:</strong> {{ volunteer.skills }}</p>
+          <p><strong>Description:</strong> {{ volunteer.description }}</p>
+          <p><strong>Address:</strong> {{ volunteer.address }}</p>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <ng-template #noVolunteers>
+    <p>No volunteers available.</p>
+  </ng-template>
+  <div class="text-center">
+    <a routerLink="/form" class="btn btn-success" >Get Help</a>
+</div>

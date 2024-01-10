@@ -1,0 +1,28 @@
+<div class="needings-list" *ngIf="needings.length > 0; else noNeedings">
+    <h2 class="text-center my-4">List of People in Need</h2>
+    <div class="needing-container">
+      <div *ngFor="let needing of needings" class="needing-card">
+        <div class="needing-details">
+          <h3 class="text-center" style="color: #8bc34a;font-weight:bold;">{{ needing.firstname }} {{ needing.lastname }}</h3>
+          <div class="detail-row">
+            <p><strong>Status:</strong> {{ needing.status }}</p>
+            <p><strong>Age:</strong> {{ needing.age }}</p>
+          </div>
+          <div class="detail-row">
+            <p><strong>Country:</strong> {{ needing.country }}</p>
+            <p><strong>Phone:</strong> <a href="tel:{{ needing.phone }}" style="color: #ff9800;font-weight:bold;text-decoration:none;">{{ needing.phone }}</a></p>
+
+          </div>
+          <p><strong>Description:</strong> {{ needing.description }}</p>
+          <p><strong>Address:</strong> {{ needing.address }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <ng-template #noNeedings>
+    <p>No needings available.</p>
+  </ng-template>
+  <div class="text-center">
+      <a routerLink="/volunteer" class="btn btn-success" >Become volunteer</a>
+</div>

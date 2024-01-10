@@ -22,6 +22,8 @@ import { FooterComponent } from './footer/footer.component';
 import { GetPreparedComponent } from './get-prepared/get-prepared.component';
 import { DisasterPrepTipsComponent } from './disaster-prep-tips/disaster-prep-tips.component';
 import { NaturalDisasterComponent } from './natural-disaster/natural-disaster.component';
+import { NeedingListComponent } from './needing-list/needing-list.component';
+import { VolunteersListComponent } from './volunteers-list/volunteers-list.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { NaturalDisasterComponent } from './natural-disaster/natural-disaster.co
     FooterComponent,
     GetPreparedComponent,
     DisasterPrepTipsComponent,
-    NaturalDisasterComponent
+    NaturalDisasterComponent,
+    NeedingListComponent,
+    VolunteersListComponent
   ],
   imports: [
     ReactiveFormsModule,
