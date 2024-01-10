@@ -1,0 +1,72 @@
+<div class="row justify-content-center">
+  <div class="col-lg-6 col-md-8 col-sm-10">
+	<ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+		<li class="nav-item" role="presentation">
+		  <button [ngClass]="active == 'login' ? 'nav-link active' : 'nav-link'" id="tab-login" (click)="onLoginTab()"
+			[style.background-color]="active == 'login' ? '#004d7f' : '#fff'"
+			[style.color]="active == 'login' ? '#fff' : '#004d7f'"
+			[style.border]="'1px solid ' + (active == 'login' ? '#fff' : '#004d7f')">
+			Login
+		  </button>
+		</li>
+		<li class="nav-item" role="presentation">
+		  <button [ngClass]="active == 'register' ? 'nav-link active' : 'nav-link'" id="tab-register"
+			(click)="onRegisterTab()"
+			[style.background-color]="active == 'register' ? '#00a79d' : '#fff'"
+			[style.color]="active == 'register' ? '#fff' : '#00a79d'"
+			[style.border]="'1px solid ' + (active == 'register' ? '#fff' : '#00a79d')">
+			Register
+		  </button>
+		</li>
+	  </ul>
+	  
+
+    <div class="tab-content">
+      <div [ngClass]="active == 'login' ? 'tab-pane fade show active' : 'tab-pane fade'">
+        <form (ngSubmit)="onSubmitLogin()" #loginForm="ngForm" class="my-4">
+          <div class="form-group mb-3">
+            <input type="login" id="loginName" name="login" class="form-control" [(ngModel)]="login" placeholder="Username" style="border-color: #004d7f;">
+          </div>
+
+          <div class="form-group mb-3">
+            <input type="password" id="loginPassword" name="password" class="form-control" [(ngModel)]="password" placeholder="Password" style="border-color: #004d7f;">
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block mt-3" style="background-color: #004d7f;">Sign in</button>
+        </form>
+      </div>
+
+      <div [ngClass]="active == 'register' ? 'tab-pane fade show active' : 'tab-pane fade'">
+        <form (ngSubmit)="onSubmitRegister()" #registerForm="ngForm" class="my-4">
+          <div class="form-group mb-3">
+            <input type="text" id="firstName" name="firstName" class="form-control" [(ngModel)]="firstName" placeholder="First name" style="border-color: #00a79d;">
+          </div>
+
+          <div class="form-group mb-3">
+            <input type="text" id="lastName" name="lastName" class="form-control" [(ngModel)]="lastName" placeholder="Last name" style="border-color: #00a79d;">
+          </div>
+
+          <div class="form-group mb-3">
+            <input type="text" id="email" name="email" class="form-control" [(ngModel)]="email" placeholder="Email" style="border-color: #00a79d;">
+          </div>
+
+          <div class="form-group mb-3">
+            <select id="role" name="role" class="form-control" [(ngModel)]="role" style="border-color: #00a79d;">
+              <option *ngFor="let userRole of userRoles" [ngValue]="userRole">{{ userRole }}</option>
+            </select>
+          </div>
+
+          <div class="form-group mb-3">
+            <input type="text" id="login" name="login" class="form-control" [(ngModel)]="login" placeholder="Username" style="border-color: #00a79d;">
+          </div>
+
+          <div class="form-group mb-3">
+            <input type="password" id="registerPassword" name="password" class="form-control" [(ngModel)]="password" placeholder="Password" style="border-color: #00a79d;">
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block mt-3" style="background-color: #00a79d;">Sign up</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+version: '3'
+services:
+  authentication-service:
+    build:
+      context: ./AuthenticationService
+    image: authentication-service:latest
+    ports:
+      - "8081:8081"
+    networks:
+      - lastNet
+    depends_on:
+      - mysql
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://mysql:3306"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  microservice2:
+    build:
+      context: ./NeedingsService
+    image: microservice2:latest
+    ports:
+      - "8082:8082"
+    networks:
+      - lastNet
+    depends_on:
+      - mysql
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://mysql:3306"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  mysql:
+    image: mysql:8.0.33
+    container_name: mysqlContainer
+    networks:
+      - lastNet
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: auth_service
+      MYSQL_USER: chaimae
+      MYSQL_PASSWORD: 1234
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  lastNet:
+    driver: bridge

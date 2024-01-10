@@ -1,0 +1,12 @@
+.btn-fixed-size {
+    width: 120px; /* Set the desired width */
+  }
+  .navbar-brand {
+    font-size: 2rem; /* Adjust the font size as needed */
+  }
+
+  .btn-fixed-size:hover {
+    background-color: #004d7f !important; /* Change to the hover color you prefer */
+    color: white; /* Change the text color on hover if needed */
+  }
+  

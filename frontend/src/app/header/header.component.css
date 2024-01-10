@@ -1,0 +1,11 @@
+.top-bar {
+  font-size: 10px;
+  font-weight: 600;
+  background-color: #ff9800;
+}
+
+.top-bar p {
+  margin: 0;
+}
+
+/* Adjust the background color, text color, and other styles as needed */

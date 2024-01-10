@@ -1,0 +1,11 @@
+
+:host {
+    display: block; /* Ensures it behaves as a block element */
+    margin: 0; /* Remove margin from the root component */
+  }
+  
+  /* Optionally, remove margin from the body as well */
+  body {
+    margin: 0;
+  }
+  

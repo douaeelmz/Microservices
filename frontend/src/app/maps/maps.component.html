@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="disasters-list">
+      <h2>Disasters</h2>
+      <ul>
+        <li *ngFor="let disaster of disasters">
+          <h3>{{ disaster.title }}</h3>
+          <ul>
+            <li *ngFor="let geometry of disaster.geometries">
+              Latitude: {{ geometry.coordinates[1] }}, Longitude: {{ geometry.coordinates[0] }}
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div id="map"></div>
+  
+  </div>
+  
