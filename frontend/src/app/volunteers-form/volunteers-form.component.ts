@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormsModule, ReactiveFormsModule , FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { VolunteerService } from '../volunteer.service';
 @Component({
   selector: 'app-volunteers-form',
   templateUrl: './volunteers-form.component.html',
@@ -8,8 +9,7 @@ import {FormsModule, ReactiveFormsModule , FormGroup, FormBuilder, Validators } 
 export class VolunteersFormComponent  {
   myForm: FormGroup | undefined;
 
-  constructor(private formBuilder: FormBuilder) { }
-
+  constructor(private volunteerService: VolunteerService) { }
   userDetails = {
     id:'',
     firstname: '',
@@ -29,7 +29,16 @@ export class VolunteersFormComponent  {
 
   submitForm(form: any): void {
     if (form.valid) {
-      console.log('Form data:', this.userDetails);
+      this.volunteerService.addVolunteer(this.userDetails).subscribe(
+        (response) => {
+          console.log('Volunteer added:', response);
+          // Handle success, reset form, etc.
+        },
+        (error) => {
+          console.error('Error adding volunteer:', error);
+          // Handle error
+        }
+      );
     }
   }
 

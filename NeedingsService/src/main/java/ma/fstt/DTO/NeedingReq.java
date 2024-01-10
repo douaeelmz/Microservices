@@ -23,7 +23,7 @@ public class NeedingReq {
 
     private String status;
 
-    private Needing.Category category;
+    private String category;
 
     private long userId;
 }
